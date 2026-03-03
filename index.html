@@ -258,16 +258,26 @@
         </footer>
 
     </div>
-    <script>
-  // ฟังก์ชันส่งความสูงของหน้าเว็บไปที่เว็บหลัก
+
+<script>
   function sendHeight() {
-    const height = document.body.scrollHeight;
+    // คำนวณความสูงจริงของเนื้อหาและส่งไปที่เว็บหลัก
+    const height = document.documentElement.scrollHeight || document.body.scrollHeight;
     window.parent.postMessage({ 'frameHeight': height }, '*');
   }
-  // ส่งค่าทันทีที่โหลดเสร็จ และเมื่อมีการเปลี่ยนขนาดหน้าจอ
-  window.onload = sendHeight;
-  window.onresize = sendHeight;
+
+  // ส่งค่าเมื่อโหลดเสร็จ ปรับขนาดจอ หรือมีการเปลี่ยนแปลงเนื้อหาภายใน
+  window.addEventListener('load', sendHeight);
+  window.addEventListener('resize', sendHeight);
+  
+  // ตรวจจับการเปลี่ยนแปลงเนื้อหาแบบอัตโนมัติ (เช่น เมื่อคุณแก้ข้อความหรือเพิ่มรูป)
+  const resizeObserver = new ResizeObserver(sendHeight);
+  resizeObserver.observe(document.body);
 </script>
+
+
+    
 </body>
 
 </html>
+
