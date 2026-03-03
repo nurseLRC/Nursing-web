@@ -258,5 +258,16 @@
         </footer>
 
     </div>
+    <script>
+  // ฟังก์ชันส่งความสูงของหน้าเว็บไปที่เว็บหลัก
+  function sendHeight() {
+    const height = document.body.scrollHeight;
+    window.parent.postMessage({ 'frameHeight': height }, '*');
+  }
+  // ส่งค่าทันทีที่โหลดเสร็จ และเมื่อมีการเปลี่ยนขนาดหน้าจอ
+  window.onload = sendHeight;
+  window.onresize = sendHeight;
+</script>
 </body>
+
 </html>
