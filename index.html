@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คณะพยาบาลศาสตร์ มหาวิทยาลัยรามคำแหง | Premium Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- 1. การตั้งค่าสีและพื้นฐาน (แก้ไขสีได้ที่นี่) --- */
+        :root {
+            --primary-purple: #301934;     /* ม่วงเข้มพรีเมียม */
+            --accent-purple: #512DA8;      /* ม่วงสว่างสำหรับไล่เฉด */
+            --royal-gold: #D4AF37;         /* ทอง */
+            --bg-body: #F8F9FA;           /* พื้นหลังเว็บสีเทาอ่อนสะอาด */
+            --white: #FFFFFF;
+            --text-main: #2D3436;
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: var(--bg-body);
+            margin: 0;
+            line-height: 1.8;
+            color: var(--text-main);
+        }
+
+        /* --- 2. ส่วนหัว (Header) ปรับให้เล็กลงและใส่รูปได้ --- */
+.header-section {
+    background: linear-gradient(rgba(48, 25, 52, 0.75), rgba(48, 25, 52, 0.75)), 
+                url('https://raw.githubusercontent.com/nurseLRC/Nursing-web/refs/heads/main/bns2.png'); 
+    
+    /* ปรับตรงนี้: ให้กว้าง 100% และความสูงปรับอัตโนมัติ */
+    background-size: 100% auto; 
+    background-repeat: no-repeat;
+    background-position: center top; /* ยึดด้านบนไว้ */
+    
+    /* หากใช้ 100% auto แนะนำให้ปิด fixed เพื่อไม่ให้ภาพเพี้ยนบนมือถือ */
+    background-attachment: scroll; 
+    
+    color: var(--white);
+    padding: 80px 20px; 
+    text-align: center;
+    border-bottom: 5px solid var(--royal-gold);
+}
+
+        /* --- 3. การจัดวาง (Layout) --- */
+        .container {
+            max-width: 1000px;
+            margin: -30px auto 80px; /* ให้กล่องเนื้อหาเกยขึ้นบน Header */
+            padding: 0 20px;
+        }
+
+        /* กล่องเนื้อหาแยกแต่ละหัวข้อ */
+        .content-block {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-left: 6px solid var(--primary-purple);
+        }
+
+        h2 {
+            color: var(--primary-purple);
+            font-size: 1.6rem;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2::before {
+            content: "";
+            width: 6px;
+            height: 25px;
+            background: var(--royal-gold);
+            border-radius: 3px;
+        }
+
+        /* --- 4. ส่วน RUNS แนวตั้ง (Vertical) พร้อมพื้นที่รูป Mascot --- */
+        .runs-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .runs-row {
+            display: grid;
+            grid-template-columns: 100px 1fr 180px; /* ตัวอักษร | ข้อความ | รูปภาพ */
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #eee;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        /* ไล่เฉดสีม่วงในช่องตัวอักษร */
+        .runs-letter {
+            background: linear-gradient(135deg, var(--primary-purple), var(--accent-purple));
+            color: var(--royal-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            font-weight: 800;
+        }
+
+        .runs-body { padding: 25px; display: flex; flex-direction: column; justify-content: center; }
+        .runs-body strong { color: var(--primary-purple); font-size: 1.2rem; display: block; margin-bottom: 5px; }
+
+        /* ช่องใส่รูป Mascot หลังข้อความ */
+        .runs-image {
+            background-color: #f0f0f0;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            border-left: 1px solid #f0f0f0;
+            /* แก้ไขรูปภาพในส่วน HTML ด้านล่าง */
+        }
+
+        /* --- 5. วัฒนธรรมองค์กร (แก้ไขตัวหนังสือที่หายไป) --- */
+        .culture-footer {
+            background: linear-gradient(135deg, var(--primary-purple) 0%, #1a0f1d 100%);
+            color: var(--white); /* สีตัวหนังสือสีขาว */
+            padding: 60px 40px;
+            text-align: center;
+            border-radius: 20px;
+            border-bottom: 8px solid var(--royal-gold);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .culture-footer h3 { 
+            color: var(--royal-gold); /* หัวข้อสีทอง */
+            margin: 0 0 20px; 
+            font-size: 1.8rem; 
+        }
+
+        .culture-text {
+            font-size: 1.4rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--white) !important; /* บังคับให้เป็นสีขาวชัดเจน */
+            margin: 0;
+        }
+
+        /* ปรับแต่งสำหรับมือถือ */
+        @media (max-width: 768px) {
+            .runs-row { grid-template-columns: 80px 1fr; }
+            .runs-image { display: none; }
+            .header-section h1 { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-section">
+        <h1>คณะพยาบาลศาสตร์</h1>
+        <p>มหาวิทยาลัยรามคำแหง (Nursing Science, RU)</p>
+    </header>
+
+    <div class="container">
+
+        <div class="content-block">
+            <h2>ปรัชญา</h2>
+            <p style="font-size: 1.2rem; text-align: center; color: var(--primary-purple); font-weight: 500;">
+                ส่งเสริมการเรียนรู้ตลอดชีวิต
+            </p>
+               <p style="font-size: 1.2rem; text-align: center; color: var(--primary-purple); font-weight: 500;">
+                ผลิตบัณฑิตด้านสุขภาพที่โดดเด่นในการดูแลสุขภาพผู้สูงอายุ
+            </p>
+        </div>
+
+        <div class="content-block">
+            <h2>ปณิธาน</h2>
+            <p>พัฒนาคณะพยาบาลศาสตร์ ให้เป็นแหล่งวิทยาการแบบตลาดวิชาควบคู่แบบจำกัดจำนวน มุ่งผลิต บัณฑิตที่มีความรู้คู่คุณธรรมและจิตสำนึกในความรับผิดชอบต่อสังคม</p>
+        </div>
+
+        <div class="content-block">
+            <h2>วิสัยทัศน์</h2>
+            <p>เป็นสถาบันการศึกษาชั้นนำด้านพยาบาลดิจิทัล และการเรียนรู้ตลอดชีวิต</p>
+        </div>
+
+        <div class="content-block" style="border-left-color: var(--royal-gold);">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                <div>
+                    <h2>อัตลักษณ์</h2>
+                    <p>เรียนรู้ตลอดชีวิต คิดเป็น เด่นคุณธรรม นำเทคโนโลยี</p>
+                </div>
+                <div>
+                    <h2>เอกลักษณ์</h2>
+                    <p>ผู้นำทางการพยาบาลยุคดิจิทัล ด้วยคุณธรรม นวัตกรรม และการเรียนรู้ตลอดชีวิต</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <h2>ค่านิยมองค์กร (RUNS)</h2>
+            <p style="color: #666; font-size: 0.95rem;">RU (Ramkhamhaeng University) + NS (Nursing Science)</p>
+            
+            <div class="runs-stack">
+                <div class="runs-row">
+                    <div class="runs-letter">R</div>
+                    <div class="runs-body">
+                        <strong>Responsibility & Resilience</strong>
+                        <p>ความรับผิดชอบต่อวิชาชีพและสังคม ควบคู่กับความเข้มแข็งและความยืดหยุ่น พร้อมรับการเปลี่ยนแปลง</p>
+                    </div>
+                    <div class="runs-image" style="background-image: url('');"></div>
+                </div>
+
+                <div class="runs-row">
+                    <div class="runs-letter">U</div>
+                    <div class="runs-body">
+                        <strong>Unity</strong>
+                        <p>ความเป็นหนึ่งเดียว ความร่วมมือ และการทำงานเป็นทีมของอาจารย์ บุคลากร และนักศึกษา</p>
+                    </div>
+                    <div class="runs-image" style="background-image: url('');"></div>
+                </div>
+
+                <div class="runs-row">
+                    <div class="runs-letter">N</div>
+                    <div class="runs-body">
+                        <strong>Nursing & Next-Gen</strong>
+                        <p>การธำรงไว้ซึ่งอัตลักษณ์ของวิชาชีพพยาบาล และการพัฒนาพยาบาลรุ่นใหม่ให้มีสมรรถนะดิจิทัล</p>
+                    </div>
+                    <div class="runs-image" style="background-image: url('');"></div>
+                </div>
+
+                <div class="runs-row">
+                    <div class="runs-letter">S</div>
+                    <div class="runs-body">
+                        <strong>Sustainability</strong>
+                        <p>การพัฒนาการศึกษา การวิจัย การบริการวิชาการ และการบริหารจัดการองค์กรอย่างยั่งยืน</p>
+                    </div>
+                    <div class="runs-image" style="background-image: url('');"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <h2>พันธกิจ</h2>
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 12px; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px;">1. ผลิตบัณฑิตพยาบาลตามมาตรฐานวิชาชีพ</li>
+                <li style="margin-bottom: 12px; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px;">2. จัดการศึกษาที่เอื้อต่อการเสริมสร้างทักษะด้านดิจิทัลและการเรียนรู้ตลอดชีวิต</li>
+                <li style="margin-bottom: 12px; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px;">3. สร้างสรรค์งานวิจัย นวัตกรรมทางการพยาบาลที่มุ่งเน้นการพยาบาลผู้สูงอายุ</li>
+                <li style="margin-bottom: 12px; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px;">4. ส่งเสริมสนับสนุนการนำนวัตกรรมไปใช้ประโยชน์ในการพัฒนาคุณภาพชีวิต</li>
+                <li style="margin-bottom: 12px; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px;">5. สนับสนุนบริการวิชาการ ทำนุบำรุงศิลปวัฒนธรรม และสร้างพลเมืองที่ดี</li>
+                <li>6. การบริหารจัดการด้วยหลักธรรมมาภิบาล ทันสมัย มุ่งสู่ด้านดิจิทัลทางการพยาบาล</li>
+            </ul>
+        </div>
+
+        <footer class="culture-footer">
+            <h3>วัฒนธรรมองค์กร</h3>
+            <p class="culture-text">
+                "ร่วมคิด ร่วมทำ พัฒนาอย่างผูกพัน ด้วยหัวใจและปัญญาแห่งรามคำแหง"
+            </p>
+        </footer>
+
+    </div>
+</body>
+</html>
