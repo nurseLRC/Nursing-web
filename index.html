@@ -284,30 +284,12 @@
     scrolling="no">
   </iframe>
 </div>
-
-<script>
-  window.addEventListener('message', function(e) {
-    if (e.data.frameHeight) {
-      // ปรับให้ iframe สูงตามเนื้อหาจริงจาก GitHub ของคุณ
-      const iframe = document.querySelector('iframe[src*="nurselrc.github.io"]');
-      if (iframe) {
-        iframe.parentElement.style.paddingTop = '0';
-        iframe.parentElement.style.height = e.data.frameHeight + 'px';
-      }
-    }
-  }, false);
-</script>
-
-
-
-
-
-
     
 
 </body>
 
 </html>
+
 
 
 
