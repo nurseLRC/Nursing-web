@@ -93,6 +93,57 @@
         .grid-half .content-block { margin-bottom: 0; }
 
         /* --- RUNS Section --- */
+        /* --- แก้ไขสไตล์ RUNS ให้ดูมีการเคลื่อนที่ --- */
+        .runs-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        /* แถบ RUNS = วิ่งสู่ความสำเร็จ */
+        .runs-meaning {
+            /*background: var(--royal-gold);*/
+            color: var(--primary-purple);
+            padding: 4px 15px;
+            border-radius: 50px;
+            /*font-weight: 600; */
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-style: italic;
+        }
+
+        .run-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            display: flex;
+            margin-bottom: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease; /* เพิ่ม Transition ให้ดูสมูท */
+        }
+
+        /* เอฟเฟกต์เคลื่อนที่เมื่อเอาเมาส์ชี้ */
+        .run-card:hover { 
+            transform: translateX(10px); 
+            border-color: var(--royal-gold);
+            box-shadow: -5px 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .run-letter {
+            background: linear-gradient(135deg, var(--primary-purple), var(--accent-purple));
+            color: var(--royal-gold);
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 900;
+            font-style: italic; /* ปรับตัวอักษรให้เอียงสื่อถึงความเร็ว */
+            min-width: clamp(80px, 12vw, 120px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }/**/
+        
         .run-card {
             background: #fff;
             border: 1px solid #eee;
@@ -208,8 +259,13 @@
         </div>
 
         <div class="content-block">
-            <h2>ค่านิยมองค์กร (RUNS)</h2>
-            <p style="font-size: 1rem; color: var(--text-muted); margin-top: -10px; margin-bottom: 20px;">RU (Ramkhamhaeng University) + NS (Nursing Science)</p>
+           <div class="runs-header">
+                <h2>ค่านิยมองค์กร (RUNS)</h2>
+                <span class="runs-meaning"> RUNS ไม่ได้หมายถึงการวิ่งเพียงอย่างเดียว แต่หมายถึงการขับเคลื่อนองค์กรอย่างไม่หยุดนิ่ง</span>
+            </div>
+            <p style="font-size: 1rem; color: var(--text-muted); margin-top: -10px; margin-bottom: 20px;">
+                RU (Ramkhamhaeng University) + NS (Nursing Science)
+            </p>
             
             <div class="run-card">
                 <div class="run-letter">R</div>
@@ -228,7 +284,7 @@
             <div class="run-card">
                 <div class="run-letter">N</div>
                 <div class="run-info">
-                    <strong>Nursing & Next-Generation Nurse</strong>
+                    <strong>Nursing & Next-Gen</strong>
                     <p>การธำรงไว้ซึ่งอัตลักษณ์ของวิชาชีพพยาบาล และการพัฒนาพยาบาลรุ่นใหม่ให้มีสมรรถนะดิจิทัล</p>
                 </div>
             </div>
