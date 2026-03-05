@@ -3,68 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ปรัชญา ปณิธาน วิสัยทัศน์</title>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <title>คณะพยาบาลศาสตร์ มหาวิทยาลัยรามคำแหง</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
-        /* --- 1. การตั้งค่าสีและพื้นฐาน (แก้ไขสีได้ที่นี่) --- */
         :root {
-            --primary-purple: #301934;     /* ม่วงเข้มพรีเมียม */
-            --accent-purple: #512DA8;      /* ม่วงสว่างสำหรับไล่เฉด */
-            --royal-gold: #D4AF37;         /* ทอง */
-            --bg-body: #F8F9FA;           /* พื้นหลังเว็บสีเทาอ่อนสะอาด */
+            --primary-purple: #301934;
+            --accent-purple: #512DA8;
+            --royal-gold: #D4AF37;
+            --light-purple: #F3E5F5;
             --white: #FFFFFF;
             --text-main: #2D3436;
+            --text-muted: #636e72;
+            --bg-body: #F0F2F5;
         }
+
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         body {
             font-family: 'Kanit', sans-serif;
             background-color: var(--bg-body);
             margin: 0;
-            line-height: 1.8;
+            padding: 0;
+            line-height: 1.6;
             color: var(--text-main);
+            overflow-x: hidden;
+            /* ปรับขนาดตัวอักษรพื้นฐานให้ใหญ่ขึ้นสำหรับหน้าจอเว็บ */
+            font-size: clamp(16px, 1.4vw, 20px);
         }
 
-        /* --- 2. ส่วนหัว (Header) ปรับให้เล็กลงและใส่รูปได้ --- */
-.header-section {
-    background: linear-gradient(rgba(48, 25, 52, 0.75), rgba(48, 25, 52, 0.75)), 
-                url('https://raw.githubusercontent.com/nurseLRC/Nursing-web/refs/heads/main/bns2.png'); 
-    
-    /* ปรับตรงนี้: ให้กว้าง 100% และความสูงปรับอัตโนมัติ */
-    background-size: 100% auto; 
-    background-repeat: no-repeat;
-    background-position: center top; /* ยึดด้านบนไว้ */
-    
-    /* หากใช้ 100% auto แนะนำให้ปิด fixed เพื่อไม่ให้ภาพเพี้ยนบนมือถือ */
-    background-attachment: scroll; 
-    
-    color: var(--white);
-    padding: 80px 20px; 
-    text-align: center;
-    border-bottom: 5px solid var(--royal-gold);
-}
+        /* --- 1. ลดขนาดพื้นที่หัว (Header) --- */
+        .header-section {
+            background: linear-gradient(rgba(48, 25, 52, 0.8), rgba(48, 25, 52, 0.8)), 
+                        url('https://raw.githubusercontent.com/nurseLRC/Nursing-web/refs/heads/main/bns2.png');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: clamp(25px, 5vw, 45px) 20px; /* ลด Padding ลงจากเดิม */
+            text-align: center;
+            border-bottom: 5px solid var(--royal-gold);
+        }
 
-        /* --- 3. การจัดวาง (Layout) --- */
+        .header-section h1 { 
+            font-size: clamp(1.8rem, 5vw, 3rem); /* ขยายหัวข้อใหญ่ */
+            margin: 0; 
+            font-weight: 600;
+        }
+
+        /* --- 2. ปรับ Container และลดช่องว่างขอบกรอบ --- */
         .container {
-            max-width: 1000px;
-            margin: -30px auto 80px; /* ให้กล่องเนื้อหาเกยขึ้นบน Header */
-            padding: 0 20px;
+            max-width: 1100px;
+            margin: -25px auto 30px; /* ลดระยะเกยขึ้นของกรอบ */
+            padding: 0 10px; /* ลดช่องว่างขอบซ้ายขวาของคอนเทนเนอร์ */
         }
 
-        /* กล่องเนื้อหาแยกแต่ละหัวข้อ */
         .content-block {
             background: var(--white);
-            border-radius: 16px;
-            padding: 40px;
-            margin-bottom: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-radius: 12px;
+            padding: clamp(20px, 3vw, 35px); /* ปรับช่องว่างภายในกรอบให้อ่านง่าย */
+            margin-bottom: 15px; /* ลดระยะห่างระหว่างกรอบ */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             border-left: 6px solid var(--primary-purple);
         }
 
         h2 {
             color: var(--primary-purple);
-            font-size: 1.6rem;
+            font-size: clamp(1.3rem, 3vw, 1.8rem); /* ขยายขนาดหัวข้อกรอบ */
             margin-top: 0;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
             gap: 12px;
@@ -72,84 +78,96 @@
 
         h2::before {
             content: "";
-            width: 6px;
-            height: 25px;
+            width: 5px;
+            height: clamp(22px, 2.5vw, 28px);
             background: var(--royal-gold);
-            border-radius: 3px;
+            border-radius: 4px;
         }
 
-        /* --- 4. ส่วน RUNS แนวตั้ง (Vertical) พร้อมพื้นที่รูป Mascot --- */
-        .runs-stack {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 25px;
-        }
-
-        .runs-row {
+        .grid-half {
             display: grid;
-            grid-template-columns: 100px 1fr 180px; /* ตัวอักษร | ข้อความ | รูปภาพ */
-            background: var(--white);
-            border-radius: 12px;
-            overflow: hidden;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .grid-half .content-block { margin-bottom: 0; }
+
+        /* --- RUNS Section --- */
+        .run-card {
+            background: #fff;
             border: 1px solid #eee;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            border-radius: 10px;
+            display: flex;
+            margin-bottom: 10px;
+            overflow: hidden;
         }
 
-        /* ไล่เฉดสีม่วงในช่องตัวอักษร */
-        .runs-letter {
+        .run-letter {
             background: linear-gradient(135deg, var(--primary-purple), var(--accent-purple));
             color: var(--royal-gold);
+            font-size: clamp(2rem, 5vw, 3rem); /* ขยายตัวอักษร R U N S */
+            font-weight: 800;
+            min-width: clamp(70px, 10vw, 100px);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3.5rem;
-            font-weight: 800;
         }
 
-        .runs-body { padding: 25px; display: flex; flex-direction: column; justify-content: center; }
-        .runs-body strong { color: var(--primary-purple); font-size: 1.2rem; display: block; margin-bottom: 5px; }
-
-        /* ช่องใส่รูป Mascot หลังข้อความ */
-        .runs-image {
-            background-color: #f0f0f0;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            border-left: 1px solid #f0f0f0;
-            /* แก้ไขรูปภาพในส่วน HTML ด้านล่าง */
+        .run-info { padding: 15px 25px; }
+        .run-info strong { 
+            display: block; 
+            font-size: clamp(1.1rem, 2.2vw, 1.4rem); /* ขยายหัวข้อ RUNS */
+            color: var(--primary-purple);
+            margin-bottom: 5px;
+        }
+        .run-info p { 
+            margin: 0; 
+            font-size: clamp(1rem, 1.8vw, 1.2rem); /* ขยายเนื้อหา RUNS */
+            color: var(--text-muted);
         }
 
-        /* --- 5. วัฒนธรรมองค์กร (แก้ไขตัวหนังสือที่หายไป) --- */
+        /* --- Mission List --- */
+        .mission-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        .mission-num {
+            background: var(--light-purple);
+            color: var(--primary-purple);
+            min-width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 600;
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+        .mission-text { 
+            font-size: clamp(1rem, 1.8vw, 1.25rem); /* ขยายเนื้อหาพันธกิจ */
+        }
+
+        /* --- Footer --- */
         .culture-footer {
-            background: linear-gradient(135deg, var(--primary-purple) 0%, #1a0f1d 100%);
-            color: var(--white); /* สีตัวหนังสือสีขาว */
-            padding: 60px 40px;
+            background: var(--primary-purple);
+            color: var(--white);
             text-align: center;
-            border-radius: 20px;
+            padding: 50px 20px;
+            border-radius: 12px;
             border-bottom: 8px solid var(--royal-gold);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        .culture-text { 
+            font-size: clamp(1.1rem, 2.5vw, 1.6rem); /* ขยายตัวหนังสือวัฒนธรรม */
+            font-style: italic; 
         }
 
-        .culture-footer h3 { 
-            color: var(--royal-gold); /* หัวข้อสีทอง */
-            margin: 0 0 20px; 
-            font-size: 1.8rem; 
-        }
-
-        .culture-text {
-            font-size: 1.4rem;
-            font-weight: 300;
-            font-style: italic;
-            color: var(--white) !important; /* บังคับให้เป็นสีขาวชัดเจน */
-            margin: 0;
-        }
-
-        /* ปรับแต่งสำหรับมือถือ */
-        @media (max-width: 768px) {
-            .runs-row { grid-template-columns: 80px 1fr; }
-            .runs-image { display: none; }
-            .header-section h1 { font-size: 1.6rem; }
+        @media (max-width: 480px) {
+            .container { margin-top: -20px; }
+            .header-section { padding: 30px 15px 50px; }
         }
     </style>
 </head>
@@ -157,145 +175,99 @@
 
     <header class="header-section">
         <h1>คณะพยาบาลศาสตร์</h1>
-        <p>มหาวิทยาลัยรามคำแหง</p>
+        <p style="font-size: clamp(1.1rem, 2.2vw, 1.5rem); margin-top: 5px; opacity: 0.9;">มหาวิทยาลัยรามคำแหง</p>
     </header>
 
     <div class="container">
-        <div class="content-block">
+        <div class="content-block" style="text-align: center; border-left: none; border-top: 6px solid var(--primary-purple);">
             <h2>ปรัชญา</h2>
-            <p style="font-size: 1.2rem; text-align: center; color: var(--primary-purple); font-weight: 500;">
-                ส่งเสริมการเรียนรู้ตลอดชีวิต
-            </p>
-               <p style="font-size: 1.2rem; text-align: center; color: var(--primary-purple); font-weight: 500;">
-                ผลิตบัณฑิตด้านสุขภาพที่โดดเด่นในการดูแลสุขภาพผู้สูงอายุ
-            </p>
+            <p style="font-size: clamp(1.2rem, 2.5vw, 1.6rem); color: var(--primary-purple); font-weight: 500; margin: 10px 0;">" ส่งเสริมการเรียนรู้ตลอดชีวิต "</p>
+            <p style="color: var(--text-muted); margin: 0;">ผลิตบัณฑิตด้านสุขภาพที่โดดเด่นในการดูแลสุขภาพผู้สูงอายุ</p>
         </div>
 
-        <div class="content-block">
-            <h2>ปณิธาน</h2>
-            <p>พัฒนาคณะพยาบาลศาสตร์ ให้เป็นแหล่งวิทยาการแบบตลาดวิชาควบคู่แบบจำกัดจำนวน มุ่งผลิต บัณฑิตที่มีความรู้คู่คุณธรรมและจิตสำนึกในความรับผิดชอบต่อสังคม</p>
+        <div class="grid-half">
+            <div class="content-block">
+                <h2>ปณิธาน</h2>
+                <p>พัฒนาคณะพยาบาลศาสตร์ ให้เป็นแหล่งวิทยาการแบบตลาดวิชาควบคู่แบบจำกัดจำนวน มุ่งผลิต บัณฑิตที่มีความรู้คู่คุณธรรมและจิตสำนึกในความรับผิดชอบต่อสังคม</p>
+            </div>
+            <div class="content-block">
+                <h2>วิสัยทัศน์</h2>
+                <p>เป็นสถาบันการศึกษาชั้นนำด้านพยาบาลดิจิทัล และการเรียนรู้ตลอดชีวิต</p>
+            </div>
         </div>
 
-        <div class="content-block">
-            <h2>วิสัยทัศน์</h2>
-            <p>เป็นสถาบันการศึกษาชั้นนำด้านพยาบาลดิจิทัล และการเรียนรู้ตลอดชีวิต</p>
-        </div>
-
-        <div class="content-block" style="border-left-color: var(--royal-gold);">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-                <div>
-                    <h2>อัตลักษณ์</h2>
-                    <p>เรียนรู้ตลอดชีวิต คิดเป็น เด่นคุณธรรม นำเทคโนโลยี</p>
-                </div>
-                <div>
-                    <h2>เอกลักษณ์</h2>
-                    <p>ผู้นำทางการพยาบาลยุคดิจิทัล ด้วยคุณธรรม นวัตกรรม และการเรียนรู้ตลอดชีวิต</p>
-                </div>
+        <div class="grid-half">
+            <div class="content-block" style="border-left-color: var(--royal-gold);">
+                <h2>อัตลักษณ์</h2>
+                <p>เรียนรู้ตลอดชีวิต คิดเป็น เด่นคุณธรรม ก้าวทันเทคโนโลยีดิจิทัล</p>
+            </div>
+            <div class="content-block" style="border-left-color: var(--royal-gold);">
+                <h2>เอกลักษณ์</h2>
+                <p>ผู้นำทางการพยาบาลยุคดิจิทัล ด้วยคุณธรรม นวัตกรรม และการเรียนรู้ตลอดชีวิต</p>
             </div>
         </div>
 
         <div class="content-block">
             <h2>ค่านิยมองค์กร (RUNS)</h2>
-            <p style="color: #666; font-size: 0.95rem;">RU (Ramkhamhaeng University) + NS (Nursing Science)</p>
+            <p style="font-size: 1rem; color: var(--text-muted); margin-top: -10px; margin-bottom: 20px;">RU (Ramkhamhaeng University) + NS (Nursing Science)</p>
             
-            <div class="runs-stack">
-                <div class="runs-row">
-                    <div class="runs-letter">R</div>
-                    <div class="runs-body">
-                        <strong>Responsibility & Resilience</strong>
-                        <p>ความรับผิดชอบต่อวิชาชีพและสังคม ควบคู่กับความเข้มแข็งและความยืดหยุ่น พร้อมรับการเปลี่ยนแปลง</p>
-                    </div>
-                    <div class="runs-image" style="background-image: url('');"></div>
+            <div class="run-card">
+                <div class="run-letter">R</div>
+                <div class="run-info">
+                    <strong>Responsibility & Resilience</strong>
+                    <p>ความรับผิดชอบต่อวิชาชีพและสังคม ควบคู่กับความเข้มแข็งและความยืดหยุ่น พร้อมรับการเปลี่ยนแปลง</p>
                 </div>
-
-                <div class="runs-row">
-                    <div class="runs-letter">U</div>
-                    <div class="runs-body">
-                        <strong>Unity</strong>
-                        <p>ความเป็นหนึ่งเดียว ความร่วมมือ และการทำงานเป็นทีมของอาจารย์ บุคลากร และนักศึกษา</p>
-                    </div>
-                    <div class="runs-image" style="background-image: url('');"></div>
+            </div>
+            <div class="run-card">
+                <div class="run-letter">U</div>
+                <div class="run-info">
+                    <strong>Unity</strong>
+                    <p>ความเป็นหนึ่งเดียว ความร่วมมือ และการทำงานเป็นทีมของอาจารย์ บุคลากร และนักศึกษา</p>
                 </div>
-
-                <div class="runs-row">
-                    <div class="runs-letter">N</div>
-                    <div class="runs-body">
-                        <strong>Nursing & Next-Gen</strong>
-                        <p>การธำรงไว้ซึ่งอัตลักษณ์ของวิชาชีพพยาบาล และการพัฒนาพยาบาลรุ่นใหม่ให้มีสมรรถนะดิจิทัล</p>
-                    </div>
-                    <div class="runs-image" style="background-image: url('');"></div>
+            </div>
+            <div class="run-card">
+                <div class="run-letter">N</div>
+                <div class="run-info">
+                    <strong>Nursing & Next-Generation Nurse</strong>
+                    <p>การธำรงไว้ซึ่งอัตลักษณ์ของวิชาชีพพยาบาล และการพัฒนาพยาบาลรุ่นใหม่ให้มีสมรรถนะดิจิทัล</p>
                 </div>
-
-                <div class="runs-row">
-                    <div class="runs-letter">S</div>
-                    <div class="runs-body">
-                        <strong>Sustainability</strong>
-                        <p>การพัฒนาการศึกษา การวิจัย การบริการวิชาการ และการบริหารจัดการองค์กรอย่างยั่งยืน</p>
-                    </div>
-                    <div class="runs-image" style="background-image: url('');"></div>
+            </div>
+            <div class="run-card">
+                <div class="run-letter">S</div>
+                <div class="run-info">
+                    <strong>Sustainability</strong>
+                    <p>การพัฒนาการศึกษา การวิจัย การบริการวิชาการ และการบริหารจัดการองค์กรอย่างยั่งยืน</p>
                 </div>
             </div>
         </div>
 
         <div class="content-block">
             <h2>พันธกิจ</h2>
-            <ul style="list-style: none; padding: 0;">
-                <li style="margin-bottom: 12px; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px;">1. ผลิตบัณฑิตพยาบาลตามมาตรฐานวิชาชีพ</li>
-                <li style="margin-bottom: 12px; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px;">2. จัดการศึกษาที่เอื้อต่อการเสริมสร้างทักษะด้านดิจิทัลทางการพยาบาลและการเรียนรู้ตลอดชีวิต</li>
-                <li style="margin-bottom: 12px; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px;">3. สร้างสรรค์งานวิจัย นวัตกรรมทางการพยาบาลที่มีคุณภาพระดับชาติและนานาชาติ ที่มุ่งเน้นการพยาบาลผู้สูงอายุ</li>
-                <li style="margin-bottom: 12px; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px;">4. ส่งเสริมสนับสนุนการนำนวัตกรรมไปใช้ประโยชน์ในการพัฒนาคุณภาพชีวิตอย่างยั่งยืน</li>
-                <li style="margin-bottom: 12px; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px;">5. สนับสนุนบริการวิชาการด้านสุขภาพ การทำนุบำรุงศิลปะและวัฒนธรรม ประยุกต์ภูมิปัญญา บูรณาการการเรียนการสอนเพื่อเสริมสร้างอัตลักษณ์บัณฑิตพยาบาลให้เป็นพลเมืองที่ดี</li>
-                <li>6. การบริหารจัดการด้วยหลักธรรมมาภิบาล ทันสมัย มุ่งสู่ด้านดิจิทัลทางการพยาบาล</li>
-            
-            </ul>
+            <div class="mission-item"><div class="mission-num">1</div><div class="mission-text">ผลิตบัณฑิตพยาบาลตามมาตรฐานวิชาชีพ</div></div>
+            <div class="mission-item"><div class="mission-num">2</div><div class="mission-text">จัดการศึกษาที่เอื้อต่อการเสริมสร้างทักษะด้านดิจิทัลทางการพยาบาลและการเรียนรู้ตลอดชีวิต</div></div>
+            <div class="mission-item"><div class="mission-num">3</div><div class="mission-text">สร้างสรรค์งานวิจัย นวัตกรรมทางการพยาบาลที่มีคุณภาพระดับชาติและนานาชาติ ที่มุ่งเน้นการพยาบาลผู้สูงอายุ</div></div>
+            <div class="mission-item"><div class="mission-num">4</div><div class="mission-text">ส่งเสริมสนับสนุนการนำนวัตกรรมไปใช้ประโยชน์ในการพัฒนาคุณภาพชีวิตอย่างยั่งยืน</div></div>
+            <div class="mission-item"><div class="mission-num">5</div><div class="mission-text">สนับสนุนบริการวิชาการด้านสุขภาพ การทำนุบำรุงศิลปะและวัฒนธรรม ประยุกต์ภูมิปัญญา บูรณาการการเรียนการสอนเพื่อเสริมสร้างอัตลักษณ์บัณฑิตพยาบาลให้เป็นพลเมืองที่ดี</div></div>
+            <div class="mission-item"><div class="mission-num">6</div><div class="mission-text">การบริหารจัดการด้วยหลักธรรมมาภิบาล ทันสมัย มุ่งสู่ด้านดิจิทัลทางการพยาบาล</div></div>
         </div>
 
         <footer class="culture-footer">
-            <h3>วัฒนธรรมองค์กร</h3>
-            <p class="culture-text">
-                "ร่วมคิด ร่วมทำ พัฒนาอย่างผูกพัน ด้วยหัวใจและปัญญาแห่งรามคำแหง"
-            </p>
+            <h3 style="margin-top:0; color:var(--royal-gold); font-size: clamp(1.5rem, 3vw, 2rem);">วัฒนธรรมองค์กร</h3>
+            <p class="culture-text">"ร่วมคิด ร่วมทำ พัฒนาอย่างผูกพัน ด้วยหัวใจและปัญญาแห่งรามคำแหง"</p>
         </footer>
-
     </div>
 
-
-
-    
-<script>
-  function sendHeight() {
-    // คำนวณความสูงจริงของเนื้อหาและส่งไปที่เว็บหลัก
-    const height = document.documentElement.scrollHeight || document.body.scrollHeight;
-    window.parent.postMessage({ 'frameHeight': height }, '*');
-  }
-
-  // ส่งค่าเมื่อโหลดเสร็จ ปรับขนาดจอ หรือมีการเปลี่ยนแปลงเนื้อหาภายใน
-  window.addEventListener('load', sendHeight);
-  window.addEventListener('resize', sendHeight);
-  
-  // ตรวจจับการเปลี่ยนแปลงเนื้อหาแบบอัตโนมัติ (เช่น เมื่อคุณแก้ข้อความหรือเพิ่มรูป)
-  const resizeObserver = new ResizeObserver(sendHeight);
-  resizeObserver.observe(document.body);
-</script>
-
-
-
+    <script>
+        function sendHeight() {
+            const height = document.body.offsetHeight;
+            if (window.parent && window.parent.postMessage) {
+                window.parent.postMessage({ 'frameHeight': height }, '*');
+            }
+        }
+        window.addEventListener('load', sendHeight);
+        if (document.fonts) { document.fonts.ready.then(sendHeight); }
+        window.addEventListener('resize', sendHeight);
+        new ResizeObserver(sendHeight).observe(document.body);
+    </script>
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
