@@ -219,7 +219,7 @@
 
         .grid-half {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 20px;
             margin-bottom: 20px;
         }
@@ -318,31 +318,41 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            min-width: 118px;
-            height: 78px;
-            padding: 0 24px;
-            border-radius: 999px;
+            width: clamp(106px, 18vw, 148px);
+            height: clamp(64px, 9vw, 78px);
+            border-radius: 22px;
             color: var(--white);
             font-weight: 800;
             letter-spacing: 1px;
             font-size: clamp(1.6rem, 3vw, 2.2rem);
-            box-shadow: 0 18px 36px rgba(0,0,0,0.18);
-            border: 1px solid rgba(255,255,255,0.22);
+            box-shadow: 0 16px 34px rgba(0,0,0,0.18);
+            border: 1px solid rgba(255,255,255,0.24);
             backdrop-filter: blur(8px);
             z-index: 3;
             transform: translateY(-50%);
         }
 
         .tag-ru {
-            left: 5%;
+            left: 7%;
             background: linear-gradient(135deg, rgba(255,255,255,0.24), rgba(255,255,255,0.10)), linear-gradient(135deg, #255184, #0f2950);
             animation: ruIn 30s ease-in-out infinite;
         }
 
         .tag-ns {
-            right: 5%;
+            right: 7%;
             background: linear-gradient(135deg, rgba(255,255,255,0.24), rgba(255,255,255,0.10)), linear-gradient(135deg, #8a63d2, #6648ad);
             animation: nsIn 30s ease-in-out infinite;
+        }
+
+        .tag-ru::before,
+        .tag-ns::before {
+            content: "";
+            position: absolute;
+            inset: -12px;
+            opacity: 0.0;
+            border-radius: 28px;
+            border: 1px dashed rgba(255,255,255,0.30);
+            pointer-events: none;
         }
 
         .impact-zone {
@@ -350,7 +360,7 @@
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            width: min(260px, 44vw);
+            width: min(420px, 72vw);
             height: 180px;
             display: flex;
             align-items: center;
@@ -377,31 +387,44 @@
         }
 
         .impact-ring::before {
-            width: 140px;
-            height: 140px;
+            width: 150px;
+            height: 150px;
             border: 2px solid rgba(255,245,211,0.52);
             animation: impactPulse2 30s ease-in-out infinite;
         }
 
         .impact-ring::after {
-            width: 190px;
-            height: 190px;
+            width: 220px;
+            height: 220px;
             border: 1px solid rgba(255,245,211,0.32);
             animation: impactPulse3 30s ease-in-out infinite;
         }
 
         .runs-word {
             position: absolute;
+            left: 50%;
+            top: 50%;
             z-index: 4;
+            width: min(760px, 88vw);
+            min-height: clamp(72px, 9vw, 92px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.24), rgba(255,255,255,0.12));
+            border: 1px solid rgba(255,255,255,0.28);
+            box-shadow: 0 18px 36px rgba(8,26,51,0.18), inset 0 1px 0 rgba(255,255,255,0.26);
+            backdrop-filter: blur(8px);
             font-weight: 800;
             letter-spacing: 6px;
             font-size: clamp(2rem, 5vw, 3.4rem);
             color: #ffffff;
             text-shadow: 0 0 24px rgba(255,245,211,0.26), 0 10px 28px rgba(0,0,0,0.24);
             opacity: 0;
-            transform: scale(0.8);
+            transform: translate(-50%, -50%) scale(0.8);
             animation: runsReveal 30s ease-in-out infinite;
             white-space: nowrap;
+            cursor: pointer;
         }
 
         .runs-word span {
@@ -411,38 +434,22 @@
             color: transparent;
         }
 
-        .merge-caption {
-            margin-top: 14px;
-            text-align: center;
-            color: rgba(255,255,255,0.92);
-            font-size: 0.98rem;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.16);
-        }
-
-        .merge-click-hint {
-            margin-top: 8px;
-            text-align: center;
-            color: rgba(255,255,255,0.88);
-            font-size: 0.9rem;
-            letter-spacing: 0.2px;
-        }
-
         @keyframes ruIn {
-            0%, 8% { transform: translateY(-50%) translateX(0) scale(0.96); opacity: 0.98; }
-            12% { transform: translateY(-50%) translateX(235px) scale(1.04); opacity: 1; }
-            14% { transform: translateY(-50%) translateX(252px) scale(0.99); opacity: 1; }
-            18% { transform: translateY(-50%) translateX(243px) scale(0.96); opacity: 0.94; }
-            20%, 94% { transform: translateY(-50%) translateX(246px) scale(0.78); opacity: 0; }
-            100% { transform: translateY(-50%) translateX(246px) scale(0.78); opacity: 0; }
+            0%, 8% { left: 7%; opacity: 0.98; transform: translateY(-50%) scale(0.96); }
+            12% { left: calc(50% - 128px); opacity: 1; transform: translateY(-50%) scale(1.04); }
+            14% { left: calc(50% - 118px); opacity: 1; transform: translateY(-50%) scale(0.99); }
+            18% { left: calc(50% - 124px); opacity: 0.94; transform: translateY(-50%) scale(0.96); }
+            20%, 94% { left: calc(50% - 124px); opacity: 0; transform: translateY(-50%) scale(0.78); }
+            100% { left: calc(50% - 124px); opacity: 0; transform: translateY(-50%) scale(0.78); }
         }
 
         @keyframes nsIn {
-            0%, 8% { transform: translateY(-50%) translateX(0) scale(0.96); opacity: 0.98; }
-            12% { transform: translateY(-50%) translateX(-235px) scale(1.04); opacity: 1; }
-            14% { transform: translateY(-50%) translateX(-252px) scale(0.99); opacity: 1; }
-            18% { transform: translateY(-50%) translateX(-243px) scale(0.96); opacity: 0.94; }
-            20%, 94% { transform: translateY(-50%) translateX(-246px) scale(0.78); opacity: 0; }
-            100% { transform: translateY(-50%) translateX(-246px) scale(0.78); opacity: 0; }
+            0%, 8% { right: 7%; opacity: 0.98; transform: translateY(-50%) scale(0.96); }
+            12% { right: calc(50% - 128px); opacity: 1; transform: translateY(-50%) scale(1.04); }
+            14% { right: calc(50% - 118px); opacity: 1; transform: translateY(-50%) scale(0.99); }
+            18% { right: calc(50% - 124px); opacity: 0.94; transform: translateY(-50%) scale(0.96); }
+            20%, 94% { right: calc(50% - 124px); opacity: 0; transform: translateY(-50%) scale(0.78); }
+            100% { right: calc(50% - 124px); opacity: 0; transform: translateY(-50%) scale(0.78); }
         }
 
         @keyframes impactPulse {
@@ -467,33 +474,46 @@
         }
 
         @keyframes runsReveal {
-            0%, 12% { opacity: 0; transform: scale(0.78); letter-spacing: 6px; }
-            16% { opacity: 1; transform: scale(1.08); letter-spacing: 2px; }
-            20%, 94% { opacity: 1; transform: scale(1); letter-spacing: 0; }
-            100% { opacity: 1; transform: scale(1); letter-spacing: 0; }
+            0%, 12% { opacity: 0; transform: translate(-50%, -50%) scale(0.78); letter-spacing: 6px; }
+            16% { opacity: 1; transform: translate(-50%, -50%) scale(1.08); letter-spacing: 2px; }
+            20%, 94% { opacity: 1; transform: translate(-50%, -50%) scale(1); letter-spacing: 0; }
+            100% { opacity: 1; transform: translate(-50%, -50%) scale(1); letter-spacing: 0; }
+        }
+
+        .runs-values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 22px;
         }
 
         .run-card {
             display: flex;
-            align-items: stretch;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
             gap: 0;
-            margin-bottom: 12px;
-            background: rgba(255,255,255,0.92);
+            margin-bottom: 0;
+            background: rgba(255,255,255,0.94);
             border: 1px solid rgba(22,52,93,0.10);
-            border-radius: 18px;
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 10px 24px rgba(8,26,51,0.06);
             transition: transform 0.26s ease, box-shadow 0.26s ease, border-color 0.26s ease;
+            min-height: 235px;
         }
 
         .run-card:hover {
-            transform: translateX(8px) translateY(-2px);
+            transform: translateY(-4px);
             border-color: rgba(215,173,56,0.34);
             box-shadow: 0 18px 38px rgba(8,26,51,0.12);
         }
 
         .run-letter {
-            min-width: clamp(78px, 10vw, 108px);
+            width: clamp(72px, 8vw, 90px);
+            height: clamp(72px, 8vw, 90px);
+            margin-top: 22px;
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -503,6 +523,7 @@
             font-style: italic;
             text-shadow: 0 8px 18px rgba(0,0,0,0.22);
             position: relative;
+            box-shadow: 0 14px 26px rgba(8,26,51,0.10);
         }
 
         .run-letter::after {
@@ -510,35 +531,38 @@
             position: absolute;
             inset: 0;
             background: linear-gradient(120deg, rgba(255,255,255,0.22), transparent 45%);
+            border-radius: inherit;
         }
 
-        .run-card:nth-child(1) .run-letter {
-            background: #4EA572; /* R = เขียวสดแบบสุภาพ */
+        .run-card.run-r .run-letter {
+            background: #52A96E; /* R = เขียวสดแบบสุภาพ */
         }
 
-        .run-card:nth-child(2) .run-letter {
-            background: #E58E73; /* U = ส้มอมชมพู */
+        .run-card.run-u .run-letter {
+            background: #E49372; /* U = ส้มอมชมพู */
         }
 
-        .run-card:nth-child(3) .run-letter {
-            background: #5FA8A6; /* N = เขียวอมฟ้า */
+        .run-card.run-n .run-letter {
+            background: #5DA7B1; /* N = ฟ้าเขียวละมุน */
         }
 
-        .run-card:nth-child(4) .run-letter {
-            background: #C97B63; /* S = อิฐอมส้ม */
+        .run-card.run-s .run-letter {
+            background: #D08367; /* S = อิฐอมส้ม */
         }
 
-        .run-info { padding: 16px 24px; }
+        .run-info { padding: 15px 16px 18px; }
         .run-info strong {
             display: block;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             color: var(--navy-800);
-            font-size: clamp(1.1rem, 2.1vw, 1.42rem);
+            font-size: clamp(1rem, 1.6vw, 1.2rem);
+            line-height: 1.25;
         }
         .run-info p {
             margin: 0;
             color: var(--text-muted);
-            font-size: clamp(1rem, 1.8vw, 1.15rem);
+            font-size: clamp(0.92rem, 1.35vw, 1rem);
+            line-height: 1.55;
         }
 
         .mission-item {
@@ -617,6 +641,12 @@
             transform: translateY(0);
         }
 
+        @media (max-width: 900px) {
+            .runs-values-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
         @media (max-width: 760px) {
             .hero-title-panel {
                 width: min(92vw, 560px);
@@ -624,35 +654,32 @@
                 padding: 16px 18px 18px;
             }
             .container { margin-top: -48px; }
-            .merge-grid {
-                min-height: 200px;
-            }
+            .merge-grid { min-height: 200px; }
             .impact-zone {
-                width: min(220px, 68vw);
-                height: 140px;
+                width: min(260px, 74vw);
+                height: 150px;
             }
             .moving-tag {
-                width: min(220px, 72vw);
-                min-width: 0;
-                height: 68px;
+                width: min(104px, 26vw);
+                min-width: 90px;
+                height: 64px;
+                border-radius: 18px;
             }
-            .tag-ru { left: 2%; }
-            .tag-ns { right: 2%; }
             @keyframes ruIn {
-                0%, 8% { transform: translateY(-50%) translateX(0) scale(0.96); opacity: 0.98; }
-                12% { transform: translateY(-50%) translateX(115px) scale(1.03); opacity: 1; }
-                14% { transform: translateY(-50%) translateX(126px) scale(0.99); opacity: 1; }
-                18% { transform: translateY(-50%) translateX(120px) scale(0.96); opacity: 0.94; }
-                20%, 94% { transform: translateY(-50%) translateX(122px) scale(0.78); opacity: 0; }
-                100% { transform: translateY(-50%) translateX(122px) scale(0.78); opacity: 0; }
+                0%, 8% { left: 2%; opacity: 0.98; transform: translateY(-50%) scale(0.96); }
+                12% { left: calc(50% - 92px); opacity: 1; transform: translateY(-50%) scale(1.03); }
+                14% { left: calc(50% - 84px); opacity: 1; transform: translateY(-50%) scale(0.99); }
+                18% { left: calc(50% - 88px); opacity: 0.94; transform: translateY(-50%) scale(0.96); }
+                20%, 94% { left: calc(50% - 88px); opacity: 0; transform: translateY(-50%) scale(0.78); }
+                100% { left: calc(50% - 88px); opacity: 0; transform: translateY(-50%) scale(0.78); }
             }
             @keyframes nsIn {
-                0%, 8% { transform: translateY(-50%) translateX(0) scale(0.96); opacity: 0.98; }
-                12% { transform: translateY(-50%) translateX(-115px) scale(1.03); opacity: 1; }
-                14% { transform: translateY(-50%) translateX(-126px) scale(0.99); opacity: 1; }
-                18% { transform: translateY(-50%) translateX(-120px) scale(0.96); opacity: 0.94; }
-                20%, 94% { transform: translateY(-50%) translateX(-122px) scale(0.78); opacity: 0; }
-                100% { transform: translateY(-50%) translateX(-122px) scale(0.78); opacity: 0; }
+                0%, 8% { right: 2%; opacity: 0.98; transform: translateY(-50%) scale(0.96); }
+                12% { right: calc(50% - 92px); opacity: 1; transform: translateY(-50%) scale(1.03); }
+                14% { right: calc(50% - 84px); opacity: 1; transform: translateY(-50%) scale(0.99); }
+                18% { right: calc(50% - 88px); opacity: 0.94; transform: translateY(-50%) scale(0.96); }
+                20%, 94% { right: calc(50% - 88px); opacity: 0; transform: translateY(-50%) scale(0.78); }
+                100% { right: calc(50% - 88px); opacity: 0; transform: translateY(-50%) scale(0.78); }
             }
         }
 
@@ -662,8 +689,8 @@
         }
 
         @media (max-width: 480px) {
-            .run-card { flex-direction: column; }
-            .run-letter { min-width: 100%; min-height: 72px; }
+            .runs-values-grid { grid-template-columns: 1fr; }
+            .run-letter { width: 78px; height: 78px; }
             .content-block { border-radius: 20px; }
         }
     </style>
@@ -721,33 +748,35 @@
                 </div>
             </div>
 
-            <div class="run-card">
+            <div class="runs-values-grid">
+                <div class="run-card run-r">
                 <div class="run-letter">R</div>
                 <div class="run-info">
                     <strong>Responsibility &amp; Reasonable</strong>
                     <p>ความรับผิดชอบและมีเหตุผล: ยึดมั่นในความรับผิดชอบต่อวิชาชีพและสังคม พร้อมตัดสินใจอย่างมีเหตุผล</p>
                 </div>
             </div>
-            <div class="run-card">
+                <div class="run-card run-u">
                 <div class="run-letter">U</div>
                 <div class="run-info">
                     <strong>Unity and Unique</strong>
                     <p>ความเป็นหนึ่งเดียวและมีเอกลักษณ์: ส่งเสริมความสามัคคีและการทำงานเป็นทีม ควบคู่การธำรงอัตลักษณ์องค์กร</p>
                 </div>
             </div>
-            <div class="run-card">
+                <div class="run-card run-n">
                 <div class="run-letter">N</div>
                 <div class="run-info">
                     <strong>Noble</strong>
                     <p>คุณธรรมแห่งวิชาชีพ: ยึดมั่นในคุณธรรม จริยธรรม และจรรยาบรรณของวิชาชีพพยาบาล ดำรงไว้ซึ่งความซื่อสัตย์</p>
                 </div>
             </div>
-            <div class="run-card">
+                <div class="run-card run-s">
                 <div class="run-letter">S</div>
                 <div class="run-info">
                     <strong>Sustainability</strong>
                     <p>ความยั่งยืน: การพัฒนาการศึกษา การวิจัย การบริการวิชาการ และการบริหารจัดการองค์กรอย่างยั่งยืน</p>
                 </div>
+            </div>
             </div>
         </div>
 
