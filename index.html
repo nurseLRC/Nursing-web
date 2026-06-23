@@ -203,7 +203,8 @@
             text-align: center;
             border-left: none;
             border-top: 7px solid var(--navy-800);
-            background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,245,221,0.88));
+            background: linear-gradient(180deg, #FFFFFF 0%, #FFF7E8 100%) !important;
+            border-color: rgba(22, 52, 93, 0.16);
         }
 
         .hero-quote .quote-text {
@@ -495,119 +496,6 @@
 
         .mission-text { font-size: clamp(1rem, 1.8vw, 1.22rem); }
 
-        .feedback-block {
-            border-left-color: var(--gold-500);
-            background:
-                radial-gradient(circle at top right, rgba(243,221,176,0.18), transparent 24%),
-                linear-gradient(180deg, rgba(255,255,255,0.99), rgba(255,245,221,0.88));
-        }
-
-        .feedback-intro {
-            color: var(--text-muted);
-            margin-top: -3px;
-            margin-bottom: 18px;
-        }
-
-        .feedback-options {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 12px 0 18px;
-        }
-
-        .feedback-chip {
-            border: 1px solid rgba(22,52,93,0.14);
-            background: rgba(255,255,255,0.95);
-            color: var(--navy-800);
-            border-radius: 999px;
-            padding: 10px 16px;
-            font-family: inherit;
-            font-size: 0.98rem;
-            cursor: pointer;
-            transition: all 0.22s ease;
-            box-shadow: 0 8px 18px rgba(8,26,51,0.05);
-        }
-
-        .feedback-chip:hover,
-        .feedback-chip.active {
-            color: var(--white);
-            background: linear-gradient(135deg, var(--navy-800), var(--purple-700));
-            border-color: transparent;
-            transform: translateY(-2px);
-            box-shadow: 0 16px 28px rgba(8,26,51,0.16);
-        }
-
-        .feedback-form label {
-            display: block;
-            color: var(--navy-800);
-            font-weight: 500;
-            margin-bottom: 8px;
-        }
-
-        .feedback-form textarea {
-            width: 100%;
-            min-height: 120px;
-            resize: vertical;
-            border-radius: 16px;
-            border: 1px solid rgba(22,52,93,0.14);
-            background: rgba(255,255,255,0.96);
-            padding: 14px 16px;
-            font-family: inherit;
-            font-size: 1rem;
-            color: var(--text-main);
-            outline: none;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .feedback-form textarea:focus {
-            border-color: rgba(91,67,181,0.42);
-            box-shadow: 0 0 0 5px rgba(122,100,214,0.14);
-        }
-
-        .feedback-actions {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-top: 14px;
-        }
-
-        .feedback-submit {
-            border: 0;
-            border-radius: 999px;
-            padding: 12px 22px;
-            font-family: inherit;
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--white);
-            background: linear-gradient(135deg, var(--navy-800), var(--purple-700));
-            cursor: pointer;
-            box-shadow: 0 14px 30px rgba(8,26,51,0.20);
-            transition: transform 0.22s ease, box-shadow 0.22s ease;
-        }
-
-        .feedback-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 18px 36px rgba(8,26,51,0.24);
-        }
-
-        .feedback-note {
-            color: var(--text-muted);
-            font-size: 0.92rem;
-        }
-
-        .feedback-result {
-            display: none;
-            margin-top: 14px;
-            padding: 12px 14px;
-            border-radius: 14px;
-            color: #31521f;
-            background: #eef8e7;
-            border: 1px solid rgba(91,143,49,0.18);
-        }
-
-        .feedback-result.show { display: block; }
-
         .culture-footer {
             position: relative;
             overflow: hidden;
@@ -689,8 +577,6 @@
         @media (max-width: 640px) {
             .grid-half { grid-template-columns: 1fr; }
             .header-section { padding: 30px 14px 82px; }
-            .feedback-actions { align-items: stretch; }
-            .feedback-submit { width: 100%; }
         }
 
         @media (max-width: 480px) {
@@ -799,28 +685,6 @@
             <div class="mission-item"><div class="mission-num">6</div><div class="mission-text">การบริหารจัดการด้วยหลักธรรมาภิบาล ทันสมัย มุ่งสู่ด้านดิจิทัลทางการพยาบาล</div></div>
         </div>
 
-        <div class="content-block feedback-block reveal">
-            <h2>Feedback / ข้อเสนอแนะ</h2>
-            <p class="feedback-intro">ขอความคิดเห็นเพื่อใช้ปรับปรุงข้อมูลและการนำเสนอของคณะพยาบาลศาสตร์ให้ชัดเจน สวยงาม และน่าใช้งานยิ่งขึ้น</p>
-            
-            <div class="feedback-options" aria-label="เลือกระดับความพึงพอใจ">
-                <button type="button" class="feedback-chip" data-feedback="ดีมาก">ดีมาก</button>
-                <button type="button" class="feedback-chip" data-feedback="ดี">ดี</button>
-                <button type="button" class="feedback-chip" data-feedback="พอใช้">พอใช้</button>
-                <button type="button" class="feedback-chip" data-feedback="ควรปรับปรุง">ควรปรับปรุง</button>
-            </div>
-
-            <div class="feedback-form">
-                <label for="feedbackText">ข้อเสนอแนะเพิ่มเติม</label>
-                <textarea id="feedbackText" placeholder="พิมพ์ความคิดเห็นหรือข้อเสนอแนะที่นี่..."></textarea>
-                <div class="feedback-actions">
-                    <button type="button" class="feedback-submit" id="submitFeedback">ส่งความคิดเห็น</button>
-                    <span class="feedback-note">* เวอร์ชันนี้บันทึก feedback ไว้ในเครื่องผู้ใช้ก่อน หากต้องการส่งเข้า Google Sheet สามารถเชื่อม Apps Script เพิ่มได้</span>
-                </div>
-                <div class="feedback-result" id="feedbackResult">ขอบคุณสำหรับความคิดเห็นค่ะ ระบบบันทึก feedback เรียบร้อยแล้ว</div>
-            </div>
-        </div>
-
         <footer class="culture-footer reveal">
             <h3>วัฒนธรรมองค์กร</h3>
             <p class="culture-text">"ร่วมคิด ร่วมทำ พัฒนาอย่างผูกพัน ด้วยหัวใจและปัญญาแห่งรามคำแหง"</p>
@@ -849,42 +713,6 @@
             });
         }, { threshold: 0.12 });
         revealItems.forEach(item => observer.observe(item));
-
-        const feedbackChips = document.querySelectorAll('.feedback-chip');
-        const feedbackText = document.getElementById('feedbackText');
-        const submitFeedback = document.getElementById('submitFeedback');
-        const feedbackResult = document.getElementById('feedbackResult');
-        let selectedFeedback = '';
-
-        feedbackChips.forEach(chip => {
-            chip.addEventListener('click', () => {
-                feedbackChips.forEach(item => item.classList.remove('active'));
-                chip.classList.add('active');
-                selectedFeedback = chip.dataset.feedback;
-                feedbackResult.classList.remove('show');
-                sendHeight();
-            });
-        });
-
-        if (submitFeedback) {
-            submitFeedback.addEventListener('click', () => {
-                const payload = {
-                    rating: selectedFeedback || 'ยังไม่ได้เลือกระดับ',
-                    comment: feedbackText ? feedbackText.value.trim() : '',
-                    submittedAt: new Date().toISOString()
-                };
-
-                const oldData = JSON.parse(localStorage.getItem('nursingWebFeedback') || '[]');
-                oldData.push(payload);
-                localStorage.setItem('nursingWebFeedback', JSON.stringify(oldData));
-
-                feedbackResult.classList.add('show');
-                if (feedbackText) feedbackText.value = '';
-                feedbackChips.forEach(item => item.classList.remove('active'));
-                selectedFeedback = '';
-                sendHeight();
-            });
-        }
     </script>
 </body>
 </html>
