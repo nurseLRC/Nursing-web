@@ -500,7 +500,7 @@
             overflow: hidden;
             box-shadow: 0 10px 24px rgba(8,26,51,0.06);
             transition: transform 0.26s ease, box-shadow 0.26s ease, border-color 0.26s ease;
-            min-height: 235px;
+            min-height: 210px;
         }
 
         .run-card:hover {
@@ -550,7 +550,7 @@
             background: #D08367; /* S = อิฐอมส้ม */
         }
 
-        .run-info { padding: 15px 16px 18px; }
+        .run-info { padding: 15px 16px 20px; }
         .run-info strong {
             display: block;
             margin-bottom: 6px;
@@ -563,13 +563,110 @@
             color: #4b5f7a;
             font-weight: 600;
             font-size: clamp(0.94rem, 1.3vw, 1.02rem);
-            margin: 0 0 8px;
+            margin: 0;
         }
         .run-info p {
             margin: 0;
             color: var(--text-muted);
             font-size: clamp(0.92rem, 1.35vw, 1rem);
             line-height: 1.55;
+        }
+
+        .run-card {
+            cursor: pointer;
+        }
+
+        .run-card:focus-visible {
+            outline: 3px solid rgba(215, 173, 56, 0.55);
+            outline-offset: 4px;
+        }
+
+        .runs-popup-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 22px;
+            background: rgba(8, 26, 51, 0.48);
+            backdrop-filter: blur(5px);
+        }
+
+        .runs-popup-overlay.show {
+            display: flex;
+        }
+
+        .runs-popup-card {
+            width: min(560px, 94vw);
+            border-radius: 24px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,250,241,0.97));
+            border: 1px solid rgba(215, 173, 56, 0.20);
+            box-shadow: 0 28px 70px rgba(8, 26, 51, 0.28);
+            padding: clamp(22px, 4vw, 32px);
+            position: relative;
+            transform: translateY(10px) scale(0.96);
+            opacity: 0;
+            transition: transform 0.22s ease, opacity 0.22s ease;
+        }
+
+        .runs-popup-overlay.show .runs-popup-card {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+
+        .popup-letter {
+            width: 62px;
+            height: 62px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff5dd;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 14px;
+            box-shadow: 0 14px 28px rgba(8,26,51,0.12);
+        }
+
+        .popup-letter.r { background: #52A96E; }
+        .popup-letter.u { background: #E49372; }
+        .popup-letter.n { background: #5DA7B1; }
+        .popup-letter.s { background: #D08367; }
+
+        .popup-title {
+            color: var(--navy-800);
+            font-size: clamp(1.3rem, 3vw, 1.7rem);
+            font-weight: 700;
+            margin: 0 36px 8px 0;
+            line-height: 1.25;
+        }
+
+        .popup-body {
+            color: var(--text-muted);
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            line-height: 1.75;
+            margin: 0;
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 38px;
+            height: 38px;
+            border: 0;
+            border-radius: 50%;
+            background: rgba(8, 26, 51, 0.08);
+            color: var(--navy-800);
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .popup-close:hover {
+            background: rgba(8, 26, 51, 0.14);
+            transform: rotate(90deg);
         }
 
         .mission-item {
@@ -756,35 +853,32 @@
             </div>
 
             <div class="runs-values-grid">
-                <div class="run-card run-r">
+                <div class="run-card run-r" tabindex="0" role="button" data-popup-letter="R" data-popup-title="Responsibility & Reasonable" data-popup-body="ความรับผิดชอบและมีเหตุผล: ยึดมั่นในความรับผิดชอบต่อวิชาชีพและสังคม พร้อมตัดสินใจอย่างมีเหตุผล">
                 <div class="run-letter">R</div>
                 <div class="run-info">
                     <strong>Responsibility &amp; Reasonable</strong>
-                    <div class="run-thai-title">รับผิดชอบต่อวิชาชีพและสังคมอย่างมีเหตุผล</div>
+                    <p>"รับผิดชอบต่อวิชาชีพและสังคม ด้วยการตัดสินใจอย่างมีเหตุผล"</p>
                 </div>
             </div>
-                <div class="run-card run-u">
+                <div class="run-card run-u" tabindex="0" role="button" data-popup-letter="U" data-popup-title="Unity and Unique" data-popup-body="ความเป็นหนึ่งเดียวและมีเอกลักษณ์: ส่งเสริมความสามัคคี และการทำงานเป็นทีม ควบคู่การธำรงอัตลักษณ์องค์กร">
                 <div class="run-letter">U</div>
                 <div class="run-info">
                     <strong>Unity and Unique</strong>
-                    <div class="run-thai-title">รวมพลังสามัคคีพร้อมชูเอกลักษณ์องค์กร</div>
-
+                    <p>"รวมพลังสามัคคี พร้อมธำรงเอกลักษณ์องค์กร"</p>
                 </div>
             </div>
-                <div class="run-card run-n">
+                <div class="run-card run-n" tabindex="0" role="button" data-popup-letter="N" data-popup-title="Noble" data-popup-body="คุณธรรมแห่งวิชาชีพ: ยึดมั่นในคุณธรรม จริยธรรม และจรรยาบรรณของวิชาชีพพยาบาล ดำรงไว้ซึ่งความซื่อสัตย์">
                 <div class="run-letter">N</div>
                 <div class="run-info">
                     <strong>Noble</strong>
-                    <div class="run-thai-title">ซื่อสัตย์และยึดมั่นจรรยาบรรณวิชาชีพพยาบาล</div>
-           
+                    <p>"ซื่อสัตย์ ยึดมั่นคุณธรรมและจรรยาบรรณวิชาชีพพยาบาล"</p>
                 </div>
             </div>
-                <div class="run-card run-s">
+                <div class="run-card run-s" tabindex="0" role="button" data-popup-letter="S" data-popup-title="Sustainability" data-popup-body="ความยั่งยืน: การพัฒนาการศึกษา การวิจัย การบริการวิชาการ และการบริหารจัดการองค์กรอย่างยั่งยืน">
                 <div class="run-letter">S</div>
                 <div class="run-info">
                     <strong>Sustainability</strong>
-                    <div class="run-thai-title">พัฒนางานวิชาการและบริหารองค์กรอย่างยั่งยืนน</div>
-                   
+                    <p>"พัฒนาองค์กรและพันธกิจสู่ความยั่งยืน"</p>
                 </div>
             </div>
             </div>
@@ -804,6 +898,16 @@
             <h3>วัฒนธรรมองค์กร</h3>
             <p class="culture-text">"ร่วมคิด ร่วมทำ พัฒนาอย่างผูกพัน ด้วยหัวใจและปัญญาแห่งรามคำแหง"</p>
         </footer>
+    </div>
+
+
+    <div class="runs-popup-overlay" id="runsPopup" aria-hidden="true">
+        <div class="runs-popup-card" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+            <button type="button" class="popup-close" id="popupClose" aria-label="ปิด">×</button>
+            <div class="popup-letter" id="popupLetter">R</div>
+            <h3 class="popup-title" id="popupTitle">Responsibility & Reasonable</h3>
+            <p class="popup-body" id="popupBody"></p>
+        </div>
     </div>
 
     <script>
@@ -853,6 +957,52 @@
             });
             window.setInterval(restartRunsMotion, 30000);
         }
+
+
+        const runsPopup = document.getElementById('runsPopup');
+        const popupClose = document.getElementById('popupClose');
+        const popupLetter = document.getElementById('popupLetter');
+        const popupTitle = document.getElementById('popupTitle');
+        const popupBody = document.getElementById('popupBody');
+
+        function openRunsPopup(card) {
+            if (!runsPopup || !popupLetter || !popupTitle || !popupBody) return;
+            const letter = card.dataset.popupLetter || '';
+            popupLetter.textContent = letter;
+            popupLetter.className = 'popup-letter ' + letter.toLowerCase();
+            popupTitle.textContent = (letter ? letter + ' - ' : '') + (card.dataset.popupTitle || '');
+            popupBody.textContent = card.dataset.popupBody || '';
+            runsPopup.classList.add('show');
+            runsPopup.setAttribute('aria-hidden', 'false');
+            if (popupClose) popupClose.focus();
+        }
+
+        function closeRunsPopup() {
+            if (!runsPopup) return;
+            runsPopup.classList.remove('show');
+            runsPopup.setAttribute('aria-hidden', 'true');
+        }
+
+        document.querySelectorAll('.run-card[data-popup-title]').forEach((card) => {
+            card.addEventListener('click', () => openRunsPopup(card));
+            card.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    openRunsPopup(card);
+                }
+            });
+        });
+
+        if (popupClose) popupClose.addEventListener('click', closeRunsPopup);
+        if (runsPopup) {
+            runsPopup.addEventListener('click', (event) => {
+                if (event.target === runsPopup) closeRunsPopup();
+            });
+        }
+        window.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') closeRunsPopup();
+        });
+
     </script>
 </body>
 </html>
