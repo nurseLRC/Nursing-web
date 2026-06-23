@@ -249,8 +249,9 @@
         .runs-showcase {
             border-left-color: var(--purple-700);
             background:
-                radial-gradient(circle at top right, rgba(122,100,214,0.13), transparent 28%),
-                linear-gradient(180deg, rgba(255,255,255,0.99), rgba(248,243,255,0.96));
+                radial-gradient(circle at top right, rgba(122,100,214,0.12), transparent 28%),
+                radial-gradient(circle at bottom left, rgba(243,221,176,0.14), transparent 24%),
+                linear-gradient(180deg, rgba(255,255,255,0.99), rgba(247,245,255,0.97));
         }
 
         .runs-header {
@@ -263,9 +264,9 @@
         }
 
         .runs-meaning {
-            color: var(--purple-700);
+            color: #5d53a6;
             background: rgba(122,100,214,0.10);
-            border: 1px solid rgba(122,100,214,0.18);
+            border: 1px solid rgba(122,100,214,0.16);
             border-radius: 999px;
             padding: 7px 15px;
             font-size: 0.94rem;
@@ -273,7 +274,7 @@
         }
 
         .runs-intro {
-            color: var(--text-muted);
+            color: #50627e;
             margin-top: -2px;
             margin-bottom: 18px;
         }
@@ -286,10 +287,12 @@
             padding: 20px;
             margin-bottom: 22px;
             background:
-                radial-gradient(circle at center, rgba(215,173,56,0.08), transparent 22%),
-                linear-gradient(135deg, rgba(8,26,51,0.98), rgba(17,42,79,0.95) 52%, rgba(91,67,181,0.92));
-            border: 1px solid rgba(255,255,255,0.08);
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 18px 36px rgba(8,26,51,0.18);
+                radial-gradient(circle at 18% 22%, rgba(255,255,255,0.24), transparent 18%),
+                radial-gradient(circle at 84% 20%, rgba(243, 221, 176, 0.28), transparent 20%),
+                radial-gradient(circle at 50% 50%, rgba(255,255,255,0.08), transparent 28%),
+                linear-gradient(135deg, #325f98 0%, #5a72bc 42%, #7a69c4 74%, #9f78cf 100%);
+            border: 1px solid rgba(255,255,255,0.20);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.22), 0 18px 36px rgba(8,26,51,0.16);
         }
 
         .merge-grid {
@@ -314,20 +317,20 @@
             font-weight: 800;
             letter-spacing: 1px;
             font-size: clamp(1.6rem, 3vw, 2.2rem);
-            box-shadow: 0 18px 36px rgba(0,0,0,0.24);
-            border: 1px solid rgba(255,255,255,0.14);
+            box-shadow: 0 18px 36px rgba(0,0,0,0.18);
+            border: 1px solid rgba(255,255,255,0.22);
             backdrop-filter: blur(8px);
             z-index: 3;
         }
 
         .tag-ru {
-            background: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0.08)), linear-gradient(135deg, var(--navy-700), var(--navy-900));
-            animation: ruIn 5.6s ease-in-out infinite;
+            background: linear-gradient(135deg, rgba(255,255,255,0.24), rgba(255,255,255,0.10)), linear-gradient(135deg, #255184, #0f2950);
+            animation: ruIn 4.4s ease-in-out forwards;
         }
 
         .tag-ns {
-            background: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0.08)), linear-gradient(135deg, var(--purple-500), var(--purple-700));
-            animation: nsIn 5.6s ease-in-out infinite;
+            background: linear-gradient(135deg, rgba(255,255,255,0.24), rgba(255,255,255,0.10)), linear-gradient(135deg, #8a63d2, #6648ad);
+            animation: nsIn 4.4s ease-in-out forwards;
         }
 
         .impact-zone {
@@ -354,39 +357,39 @@
         .impact-ring {
             width: 90px;
             height: 90px;
-            background: radial-gradient(circle, rgba(243,221,176,0.65), rgba(243,221,176,0.08));
-            animation: impactPulse 5.6s ease-in-out infinite;
+            background: radial-gradient(circle, rgba(255,245,211,0.78), rgba(243,221,176,0.12));
+            animation: impactPulse 4.4s ease-in-out forwards;
         }
 
         .impact-ring::before {
             width: 140px;
             height: 140px;
-            border: 2px solid rgba(243,221,176,0.45);
-            animation: impactPulse2 5.6s ease-in-out infinite;
+            border: 2px solid rgba(255,245,211,0.52);
+            animation: impactPulse2 4.4s ease-in-out forwards;
         }
 
         .impact-ring::after {
             width: 190px;
             height: 190px;
-            border: 1px solid rgba(243,221,176,0.28);
-            animation: impactPulse3 5.6s ease-in-out infinite;
+            border: 1px solid rgba(255,245,211,0.32);
+            animation: impactPulse3 4.4s ease-in-out forwards;
         }
 
         .runs-word {
             position: absolute;
             z-index: 4;
             font-weight: 800;
-            letter-spacing: 2px;
+            letter-spacing: 6px;
             font-size: clamp(2rem, 5vw, 3.4rem);
             color: #ffffff;
-            text-shadow: 0 0 22px rgba(243,221,176,0.22), 0 10px 28px rgba(0,0,0,0.28);
+            text-shadow: 0 0 24px rgba(255,245,211,0.26), 0 10px 28px rgba(0,0,0,0.24);
             opacity: 0;
             transform: scale(0.8);
-            animation: runsReveal 5.6s ease-in-out infinite;
+            animation: runsReveal 4.4s ease-in-out forwards;
         }
 
         .runs-word span {
-            background: linear-gradient(135deg, #ffffff 0%, #f9edcb 35%, #f1d27d 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #fff2cf 42%, #f2d37b 100%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -395,44 +398,50 @@
         .merge-caption {
             margin-top: 14px;
             text-align: center;
-            color: rgba(255,255,255,0.84);
+            color: rgba(255,255,255,0.92);
             font-size: 0.98rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.16);
         }
 
         @keyframes ruIn {
             0%, 18% { transform: translateX(-110px) scale(0.96); opacity: 0.98; }
-            34%, 46% { transform: translateX(18px) scale(1.02); opacity: 1; }
-            52%, 100% { transform: translateX(-110px) scale(0.96); opacity: 0.98; }
+            44% { transform: translateX(16px) scale(1.03); opacity: 1; }
+            52% { transform: translateX(2px) scale(0.98); opacity: 0.92; }
+            64% { transform: translateX(0) scale(0.90); opacity: 0.24; }
+            100% { transform: translateX(0) scale(0.78); opacity: 0; }
         }
 
         @keyframes nsIn {
             0%, 18% { transform: translateX(110px) scale(0.96); opacity: 0.98; }
-            34%, 46% { transform: translateX(-18px) scale(1.02); opacity: 1; }
-            52%, 100% { transform: translateX(110px) scale(0.96); opacity: 0.98; }
+            44% { transform: translateX(-16px) scale(1.03); opacity: 1; }
+            52% { transform: translateX(-2px) scale(0.98); opacity: 0.92; }
+            64% { transform: translateX(0) scale(0.90); opacity: 0.24; }
+            100% { transform: translateX(0) scale(0.78); opacity: 0; }
         }
 
         @keyframes impactPulse {
-            0%, 22%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.15); }
-            35% { opacity: 0.92; transform: translate(-50%, -50%) scale(1.15); }
-            48% { opacity: 0; transform: translate(-50%, -50%) scale(1.75); }
+            0%, 34% { opacity: 0; transform: translate(-50%, -50%) scale(0.15); }
+            48% { opacity: 0.92; transform: translate(-50%, -50%) scale(1.05); }
+            68%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(1.75); }
         }
 
         @keyframes impactPulse2 {
-            0%, 22%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.25); }
-            35% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.05); }
-            48% { opacity: 0; transform: translate(-50%, -50%) scale(1.65); }
+            0%, 34% { opacity: 0; transform: translate(-50%, -50%) scale(0.25); }
+            48% { opacity: 0.7; transform: translate(-50%, -50%) scale(0.98); }
+            68%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(1.58); }
         }
 
         @keyframes impactPulse3 {
-            0%, 22%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.35); }
-            35% { opacity: 0.55; transform: translate(-50%, -50%) scale(0.98); }
-            48% { opacity: 0; transform: translate(-50%, -50%) scale(1.55); }
+            0%, 34% { opacity: 0; transform: translate(-50%, -50%) scale(0.35); }
+            48% { opacity: 0.55; transform: translate(-50%, -50%) scale(0.94); }
+            68%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(1.48); }
         }
 
         @keyframes runsReveal {
-            0%, 28% { opacity: 0; transform: scale(0.78); }
-            36%, 46% { opacity: 1; transform: scale(1.06); }
-            52%, 100% { opacity: 0; transform: scale(0.86); }
+            0%, 38% { opacity: 0; transform: scale(0.78); letter-spacing: 6px; }
+            56% { opacity: 1; transform: scale(1.08); letter-spacing: 2px; }
+            72% { opacity: 1; transform: scale(1); letter-spacing: 0.4px; }
+            100% { opacity: 1; transform: scale(1); letter-spacing: 0; }
         }
 
         .run-card {
@@ -450,8 +459,8 @@
 
         .run-card:hover {
             transform: translateX(8px) translateY(-2px);
-            border-color: rgba(215,173,56,0.38);
-            box-shadow: 0 18px 38px rgba(8,26,51,0.14);
+            border-color: rgba(215,173,56,0.34);
+            box-shadow: 0 18px 38px rgba(8,26,51,0.12);
         }
 
         .run-letter {
@@ -471,23 +480,23 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(120deg, rgba(255,255,255,0.16), transparent 45%);
+            background: linear-gradient(120deg, rgba(255,255,255,0.22), transparent 45%);
         }
 
         .run-card.run-r .run-letter {
-            background: #4EA572; /* R = เขียวสดแบบสุภาพ */
+            background: #52A96E; /* R = เขียวสดแบบสุภาพ */
         }
 
         .run-card.run-u .run-letter {
-            background: #E58E73; /* U = ส้มอมชมพู */
+            background: #E49372; /* U = ส้มอมชมพู */
         }
 
         .run-card.run-n .run-letter {
-            background: #5FA8A6; /* N = เขียวอมฟ้า */
+            background: #5DA7B1; /* N = ฟ้าเขียวละมุน */
         }
 
         .run-card.run-s .run-letter {
-            background: #C97B63; /* S = อิฐอมส้ม */
+            background: #D08367; /* S = อิฐอมส้ม */
         }
 
         .run-info { padding: 16px 24px; }
@@ -602,13 +611,17 @@
             }
             @keyframes ruIn {
                 0%, 18% { transform: translateX(-52px) scale(0.96); opacity: 0.98; }
-                34%, 46% { transform: translateX(10px) scale(1.02); opacity: 1; }
-                52%, 100% { transform: translateX(-52px) scale(0.96); opacity: 0.98; }
+                44% { transform: translateX(10px) scale(1.03); opacity: 1; }
+                52% { transform: translateX(2px) scale(0.98); opacity: 0.92; }
+                64% { transform: translateX(0) scale(0.90); opacity: 0.22; }
+                100% { transform: translateX(0) scale(0.78); opacity: 0; }
             }
             @keyframes nsIn {
                 0%, 18% { transform: translateX(52px) scale(0.96); opacity: 0.98; }
-                34%, 46% { transform: translateX(-10px) scale(1.02); opacity: 1; }
-                52%, 100% { transform: translateX(52px) scale(0.96); opacity: 0.98; }
+                44% { transform: translateX(-10px) scale(1.03); opacity: 1; }
+                52% { transform: translateX(-2px) scale(0.98); opacity: 0.92; }
+                64% { transform: translateX(0) scale(0.90); opacity: 0.22; }
+                100% { transform: translateX(0) scale(0.78); opacity: 0; }
             }
         }
 
